@@ -48,7 +48,7 @@ public class PrincipalActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         String nome = dataSnapshot.getValue().toString();
-                        txtWelcome.setText("Olá " + nome);
+                        txtWelcome.setText("Olá, " + nome + " !");
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
