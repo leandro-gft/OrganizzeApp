@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:background="@null"
+            android:gravity="right"
             android:hint="R$ 00.00"
             android:inputType="numberDecimal"
             android:textColor="@android:color/white"

@@ -33,7 +33,6 @@ public class DespesaActivity extends AppCompatActivity {
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     private Double despesaTotal;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,6 +105,4 @@ public class DespesaActivity extends AppCompatActivity {
         });
 
     }
-
-
 }
