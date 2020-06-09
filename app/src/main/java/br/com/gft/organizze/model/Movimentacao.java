@@ -1,8 +1,14 @@
 package br.com.gft.organizze.model;
 
+import androidx.annotation.NonNull;
+
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import br.com.gft.organizze.helper.Base64Custom;
 
@@ -12,7 +18,7 @@ public class Movimentacao {
     private String categoria;
     private String descricao;
     private String tipo;
-    private double valor;
+    private Double valor;
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
 

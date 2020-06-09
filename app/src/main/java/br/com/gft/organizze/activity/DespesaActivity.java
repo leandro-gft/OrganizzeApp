@@ -3,6 +3,7 @@ package br.com.gft.organizze.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,7 +23,6 @@ public class DespesaActivity extends AppCompatActivity {
     private Date date = new Date();
     private Movimentacao movimentacao;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +34,37 @@ public class DespesaActivity extends AppCompatActivity {
         etDespesaValor = findViewById(R.id.etDespesaValor);
 
         etDataHoje.setText(sdf.format(date.getTime()));
+
     }
 
     public void addDespesa(View view){
-       // SimpleDateFormat sdf2 = new SimpleDateFormat("mmyyyy");
+        String campoData = etDataHoje.getText().toString();
+        String campoCategoria = etDespesaCategoria.getText().toString();
+        String campoDescricao = etDespesaDesricao.getText().toString();
+        String campoValor = etDespesaValor.getText().toString();
 
-        movimentacao = new Movimentacao(etDataHoje.getText().toString(), etDespesaCategoria.getText().toString(), etDespesaDesricao.getText().toString(), "d", Double.parseDouble(etDespesaValor.getText().toString()));
-        movimentacao.salvar();
+        if (validarDespesa()) {
+            movimentacao = new Movimentacao(campoData, campoCategoria, campoDescricao, "d", Double.parseDouble(campoValor));
+            movimentacao.salvar();
+            finish();
+        }
+    }
+
+
+    public Boolean validarDespesa(){
+        String campoData = etDataHoje.getText().toString();
+        String campoCategoria = etDespesaCategoria.getText().toString();
+        String campoDescricao = etDespesaDesricao.getText().toString();
+        String campoValor = etDespesaValor.getText().toString();
+
+        if (campoCategoria.isEmpty()||
+                campoData.isEmpty() || campoDescricao.isEmpty()|| campoValor.isEmpty()) {
+            Toast.makeText(DespesaActivity.this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+
     }
 
 
