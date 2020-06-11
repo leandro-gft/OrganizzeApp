@@ -12,9 +12,10 @@
         <activity android:name=".activity.ReceitaActivity"></activity>
         <activity android:name=".activity.DespesaActivity" />
         <activity
-            android:name=".activity.PrincipalActivity" />
-        <activity android:name=".activity.CadastroActivity" />
-        <activity android:name=".activity.LoginActivity" />
+            android:name=".activity.PrincipalActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".activity.CadastroActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".activity.LoginActivity" android:theme="@style/AppTheme"/>
         <activity
             android:name=".activity.MainIntroActivity"
             android:theme="@style/Theme.Intro">

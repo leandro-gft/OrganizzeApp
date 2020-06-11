@@ -10,9 +10,9 @@
     <LinearLayout
         android:id="@+id/menuApresentacao"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:orientation="vertical"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,12 +21,12 @@
             android:id="@+id/textWelcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textSize="16sp"
+            android:layout_marginTop="50dp"
+            android:text=""
             android:textColor="@android:color/white"
-            android:text=""/>
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textSaldoTotal"
@@ -44,16 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@android:color/white"
-            android:text="saldo geral"
-
-            />
-
-        <Button
-            android:id="@+id/btnSignOut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="SIGN OUT" />
+            android:text="saldo geral"/>
 
     </LinearLayout>
 
@@ -81,8 +72,8 @@
         fab:menu_animationDelayPerItem="50"
         fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
-        fab:menu_colorNormal="@color/colorAccent"
-        fab:menu_colorPressed="@color/colorAccent"
+        fab:menu_colorNormal="@color/colorPrimary"
+        fab:menu_colorPressed="@color/colorPrimary"
         fab:menu_colorRipple="#99FFFFFF"
         fab:menu_fab_size="normal"
         fab:menu_icon="@drawable/fab_add"
