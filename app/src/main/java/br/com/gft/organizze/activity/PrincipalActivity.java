@@ -18,17 +18,19 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
 import br.com.gft.organizze.R;
 import br.com.gft.organizze.helper.Base64Custom;
 
 public class PrincipalActivity extends AppCompatActivity {
 
-    private TextView txtWelcome;
+    private TextView txtWelcome, txtSaldo;
     private Button btnSignOut;
     private FloatingActionButton fabD, fabR;
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
+    private MaterialCalendarView mcv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +39,13 @@ public class PrincipalActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mcv = findViewById(R.id.calendarView);
+        txtSaldo = findViewById(R.id.textSaldoTotal);
         txtWelcome = findViewById(R.id.textWelcome);
         btnSignOut = findViewById(R.id.btnSignOut);
+
+        configuraCalendarView();
+
 
         String emailCodificado = auth.getCurrentUser().getEmail();
         referencia.child("usuarios")
@@ -63,6 +70,11 @@ public class PrincipalActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void configuraCalendarView() {
+        String meses[] = {"Janeiro","Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
+        mcv.setTitleMonths(meses);
     }
 
     public void adicionarReceita(View view) {
